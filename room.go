@@ -22,6 +22,8 @@ type room struct {
 	// tracer will receive trace information of activity
 	// in the room.
 	tracer trace.Tracer
+	// avatar is how avatar information will be obtained.
+	avatar Avatar
 }
 
 const (
@@ -30,13 +32,14 @@ const (
 )
 
 // newRoom makes a new room that is ready to go.
-func newRoom() *room {
+func newRoom(avatar Avatar) *room {
 	return &room{
 		forward: make(chan *message),
 		join:    make(chan *client),
 		leave:   make(chan *client),
 		clients: make(map[*client]bool),
 		tracer:  trace.Off(),
+		avatar:  avatar,
 	}
 }
 
