@@ -38,7 +38,7 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	r := newRoom(UseAuthAvatar)
+	r := newRoom(UseGravatar)
 	r.tracer = trace.New(os.Stdout)
 	// set up gomniauth
 
